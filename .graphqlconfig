@@ -1,0 +1,16 @@
+{
+  "name": "Main schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "https://graphql.datocms.com",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "authorization": "Bearer ${env:VITE_DATO_READ_TOKEN}"
+        },
+        "introspect": true
+      }
+    }
+  }
+}

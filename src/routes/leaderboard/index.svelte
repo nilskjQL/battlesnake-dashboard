@@ -47,10 +47,11 @@
 	<aside class='text-white md:flex-1 max-w-2xl'>
 		<h1 class='py-8 ml-4 text-center text-white text-2xl'>Previous round {subscription.data?.dashboard?.round}</h1>
 		<div class='grid place-items-center'>
+			Live Replay
 			<!--<img src='../../../static/giftest.gif' />-->
 			<img src={subscription.data?.dashboard?.playback?.url} />
 		</div>
-		<h2 class='pt-8 text-2xl'>Results</h2>
+		<h2 class='pt-8 text-2xl'>Round Results</h2>
 		<dl class='pt-4'>
 			<dt>Winner 🏆</dt>
 			<dd>{subscription.data?.dashboard?.winner?.name}</dd>

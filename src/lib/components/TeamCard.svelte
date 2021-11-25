@@ -8,6 +8,6 @@
 		{:else }
 		<div class='h-16 w-16 grid place-items-center'>🐍</div>
 	{/if}
-	<span class='my-auto flex-1'><a href='{team.url}'>{team.name}</a></span>
-	<span class='my-auto '>{team.score}</span>
+	<span class='my-auto flex-1'><a href='{team.url}' class='text-white text-xl no-underline'>{team.name}</a></span>
+	<span class='my-auto text-white text-xl font-bold'>{team.score}</span>
 </div>

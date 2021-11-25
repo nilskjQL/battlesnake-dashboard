@@ -52,22 +52,4 @@
 	</section>
 </main>
 
-<style>
-	h1 {
-		@apply text-4xl leading-relaxed;
-	}
 
-	h2, h3 {
-		@apply text-2xl ;
-	}
-
-	p, li {
-		@apply leading-relaxed text-xl pt-8
-	}
-
-	a {
-		text-decoration: underline;
-		@apply underline text-green-400 hover:text-white;
-	}
-
-</style>

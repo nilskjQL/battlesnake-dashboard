@@ -34,14 +34,12 @@
 		<li>Set you snake colour to the one matching your team slack channel description and notify our crew that your snake
 			is ready for battle, providing a url link to your snake server.
 		</li>
-		<li>A game round is a free for all battle with all snakes. We will watch the rounds on the big screen, there might
-			be a final between the top snakes if there is a tie.
+		<li>A game round is a free for all battle with all snakes. We will watch the rounds on the big screen, there will
+			be a final between the top snakes to determine the ultimate winner.
 		</li>
 	</ol>
 
 	<p>If you get stuck with any anything just post in the help channel in slack and we can come by and assist</p>
-	<p>Pzzt... 🐍 <br />There
-		might be some code clues hidden around the castle!</p>
 
 	<section class='py-8'>
 		<h3>Useful links</h3>

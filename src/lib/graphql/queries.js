@@ -32,6 +32,9 @@ const fetchAllTeamsDashboard = gql`
 								name
 						}
 						info
+						playback {
+							url	
+						}
 				}
     }
 `;

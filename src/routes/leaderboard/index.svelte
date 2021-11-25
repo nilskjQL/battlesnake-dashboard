@@ -1,9 +1,12 @@
 <script>
 	import { subscribeToQuery } from 'datocms-listen';
 	import { onDestroy, onMount } from 'svelte';
+	import { crossfade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 	import { getGqlString } from '$lib/graphql/dato';
 	import { fetchAllTeamsDashboard } from '$lib/graphql/queries';
 	import TeamCard from '$lib/components/TeamCard.svelte';
+	import { quintOut } from 'svelte/easing';
 
 	let subscription = {
 		data: undefined
@@ -31,16 +34,39 @@
 	$: if (subscription.data) {
 		//show highest score on top
 		subscription.data?.allTeams.sort((a, b) => b.score - a.score);
-		console.log(subscription)
+		console.log(subscription);
 	}
+
+	const [send, receive] = crossfade({
+		duration: d => Math.sqrt(d * 200),
+
+		fallback(node, params) {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration: 600,
+				easing: quintOut,
+				css: t => `
+					transform: ${transform} scale(${t});
+					opacity: ${t}
+				`
+			};
+		}
+	});
+
 </script>
 
 <main class='flex flex-col md:flex-row w-full justify-center gap-x-8'>
 	<aside class='w-full md:max-w-xl mx-auto md:px-0 px-6 md:flex-1'>
 		<h1 class='py-8 ml-4 text-center text-white text-2xl'>QL Battlesnake Leaderboard 🐍</h1>
 		{#if subscription.data}
-			{#each subscription.data.allTeams as team}
-				<TeamCard {team} />
+			{#each subscription.data.allTeams as team (team.id)}
+				<div in:receive|local='{{key: team.name}}'
+						 out:send|local='{{key: team.name}}'
+						 animate:flip='{{duration: 400}}'>
+					<TeamCard {team} />
+				</div>
 			{/each}
 		{/if}
 
@@ -68,12 +94,12 @@
 		<p class='pt-4 pb-20'>{subscription.data?.dashboard?.info}</p>
 	</aside>
 </main>
-<a href="/" class='p-8 pb-20'> {"<---"} Rules and instructions</a>
+<a class='p-8 pb-20' href='/'> {"<---"} Rules and instructions</a>
 
 
 <style>
 	dl {
-	  @apply grid text-xl gap-6 pt-4;
+		@apply grid text-xl gap-6 pt-4;
 
 		grid-template-columns: max-content auto;
 	}
@@ -84,8 +110,8 @@
 	}
 
 	dd {
-	  @apply text-xl;
-	  grid-column-start: 2;
+		@apply text-xl;
+		grid-column-start: 2;
 	}
 
 </style>

@@ -3,7 +3,8 @@
 
 	<p>
 		Welcome to the epic game of battlesnake at Queenslab! This is a multiplayer snake arena game where last standing
-		wins.
+		wins. Please have a look at the rules of the game <a target='_blank'
+																												href='https://docs.battlesnake.com/references/rules'>Battlesnake Rules</a>.
 	</p>
 
 	<p>
@@ -37,8 +38,10 @@
 			be a final between the top snakes if there is a tie.
 		</li>
 	</ol>
-	<p>If you get stuck with any anything just post in the help channel in slack and we can come by and assist. There
-		might be some code clues hidden around the castle for algorithms</p>
+
+	<p>If you get stuck with any anything just post in the help channel in slack and we can come by and assist</p>
+	<p>Pzzt... 🐍 <br />There
+		might be some code clues hidden around the castle!</p>
 
 	<section class='py-8'>
 		<h3>Useful links</h3>
